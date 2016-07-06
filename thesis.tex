@@ -1,0 +1,121 @@
+% Delete the MSc option if you are doing a PhD, or replace it with MPhil
+% for a Master of Philosophy thesis
+%
+% The 12pt option is required by the 2001/02 thesis regulations
+% Last update 15th August 2007: new Abstract format and Copyright Statement
+
+% Replace MSc with PhD for PhD theses
+% Remove the twoside option for single-sided printing
+\documentclass[12pt,MSc,twoside]{muthesis}
+% This file is thesis.tex
+% For the history of this document, see the header to the accompanying stylesheet, geogthesis.cls
+% This document lays out the body of the thesis, bookends and chapter order. This is the document you need to compile.
+
+% This section configures the key parameters of the document, as well as expanding and modifying various typesetting functions.
+
+\usepackage[T1]{tipa}																					% This package expands font options
+\usepackage{amsmath, amsthm, amssymb}													% These packages extend math mode functions
+\usepackage{natbib}																						% This defines how references are handled (via package natbib)
+	\def\citeapos#1{\citeauthor{#1}'s (\citeyear{#1})}					% natbib settings as above
+  \bibpunct{(}{)}{;}{a}{,}{,} 																% natbib settings as above
+\usepackage{multicol}																					% Package allows multiple columns of text - good for some lists
+\usepackage{xcolor}																						% Package allows for easier colour management
+
+% These packages help make better tables and figures
+\usepackage{tabularx}																					% This package gives the option of using tabularx rather than tabular
+\usepackage{longtable} 																				% Package allows spanning of tables over multiple pages
+\usepackage{multirow}																					% Package used in tables to set cell width to natural text widths
+\usepackage{booktabs}																					% Allows the use of \toprule, \midrule, \bottomrule insead of \hline
+
+% These packages help with placement of floats
+\usepackage{rotating}																					% This package allows for sidewaysfigure and sideways table options
+\usepackage{afterpage} 																				% Allows command \afterpage{\clearpage} to allow clever page float control
+\usepackage[section]{placeins} 																% Forces a page of undrawn floats after each section c.f. \FloatBarrier
+\usepackage{flafter} 																					% Forces floats to only be drawn after they appear their placement in the document
+%\usepackage{samepage}																				% Enables an environment that forces elements onto the same page
+
+% These packages modify pdf properties
+\usepackage{pdflscape}																				% This package can be used to make l'scape pages l'scape in pdf docs	
+\usepackage{pdfpages}																					% Package allows for clever insertion of pdf pages into a document
+
+% These packages are all to do with automatic cross-referencing
+\usepackage{footnote}																					% Provides an easy way of working with footnotes
+\numberwithin{equation}{chapter}															% This resets the equasion number at the start of each chapter
+\setcounter{secnumdepth}{5}																		% This changes the depth of section numbering
+\usepackage{caption} 																					% Allows \captionsetup[figure]{list=no} to listing on/off for floats - good for appendicies
+\usepackage{subfigure} 																				% Enables the use of subfigures
+%\usepackage{makeidx}																					% If you want to create an index for your thesis, you have too much time on your hands
+%\usepackage{showidx}																					% Use these two packages and think about a taking up a hobby
+%\usepackage[none]{hyphenat}    															% This can enable or disable hyphenation on line breaks. Why would you do this?
+%\hyphenation{words}																					% This defines words that cannot be hyphenated, or defines acceptable hyphenations. Much better.
+
+% The following are useful sundries for little jobs						
+%\usepackage{siunitx}																					% Automagically generate si units
+%\sisetup{detect-weight, detect-display-math}									% Settings for the above
+%\sisetup{detect-inline-weight=math}													% Settings for the above
+
+% The following options are useful for drafting documents
+%\usepackage{lineno} 																					% Provides line numbers on paragraphs, and references therein. Useful for transcripts
+%\usepackage{draftwatermark}																	% Prints a draft watermark
+%\linenumbers 																								% Makes whole document line numbers. Remember to use lineno package and \resetlinenumber[1]
+
+
+\begin{document}
+% The following changes the page colour of the pdf for dyslexics.
+%\pagecolor{blue!30} 																					% Changes page colour. Useful for dyslexics.
+\title{The University Thesis File}
+\author{Thomas Bishop}
+% Faculty of Life Sciences people should comment the next line out
+\school{Educaton, Environment \& Development}
+\faculty{Geography}
+\def\wordcount{nnnnn}
+
+% Uncomment the line below to suppress the `List of Tables' page (optional)
+%\tablespagefalse
+
+% Uncomment the line below to suppress the `List of Figures' page (optional)
+%\figurespagefalse
+
+% Uncomment the line below to use a customised Declaration statement
+%\def\declaration{All the work in this thesis has been sourced from Google.}
+
+\beforeabstract
+
+Write your abstract here: Remember, it must fit on this A4 page and should
+describe contents of the thesis/dissertation. Here might also be a good place
+to indicate what you have achieved in the thesis/dissertation and, in the
+case of a PhD, what new results you have discovered. Note that for a PhD
+single-spacing is used throughout the Abstract, including displayed equations
+\[
+e = mc^{2}
+\]
+as for the above example.
+
+\afterabstract
+
+% The next part is optional; however it is a good place to thank your
+% supervisor and the people responsible for providing computer support ;-)
+\prefacesection{Acknowledgements}
+I would like to thank...
+
+% The next line is NOT optional and MUST appear
+\afterpreface
+
+% The following defines the chapter files and their order.
+\raggedright          																					%justifies left, according to the university specifications. Comment out for fully justified.
+\include{intro}
+\include{textandxref}
+\include{figuresandtables} 
+
+\bibliographystyle{chicago}
+\bibliography{library}
+
+% Comment the following THREE lines if you do NOT have an Appendix
+%\appendix
+%\chapter{A Long Proof}
+%.........
+
+% If you need more than one appendix, then just use another \chapter command
+%\chapter{Yet Another Appendix}
+
+\end{document}

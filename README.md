@@ -1,8 +1,6 @@
-# thesis-latex-manc-coursematerials
-These are the course notes to go with thesis-latex-manc.
+# thesis-latex-manc
+This is a template for typesetting theses at the University of Manchester.
 
-They were transcribed and adapted from original material produced by Tom Bishop in 2014 and 2015, when the course ran at the University of Southampton, by Tom Bishop and Gerard Capes, in 2016.
+This document is adapted from the template provided by the School of Mathematics, University of Manchester (last updated 13th August, 2013. It was merged with another document, originally provided by Electronics & Computer Science at the University of Southampton, but was extensively modified by a number of postgraduates in Geography & Environment at the University of Southampton through the years. These folks include Chris Hackney, followed by Tom Bishop and Robin Wilson. Gerard Capes and Tom Bishop produced this version of the template in 2016.
 
-They are usually compiled using pdfTeX; the only auxiliary file required is the University of Manchester logo, of which a copy is included in this repository. 
-
-All of the materials here (excluded the University of Manchester logo) are licenced under CC-BY-SA v4.0; see: https://creativecommons.org/licenses/by-sa/4.0/ for more details.
+All of the materials here are licenced under CC-BY-SA v4.0 in lieu of any explicit licencing of the original material; see: https://creativecommons.org/licenses/by-sa/4.0/ for more details.

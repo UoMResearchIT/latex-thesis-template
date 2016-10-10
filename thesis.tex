@@ -15,9 +15,6 @@
 
 \usepackage[T1]{tipa}																					% This package expands font options
 \usepackage{amsmath, amsthm, amssymb}													% These packages extend math mode functions
-\usepackage{natbib}																						% This defines how references are handled (via package natbib)
-	\def\citeapos#1{\citeauthor{#1}'s (\citeyear{#1})}					% natbib settings as above
-  \bibpunct{(}{)}{;}{a}{,}{,} 																% natbib settings as above, but we need to move away from Natbib
 \usepackage{multicol}																					% Package allows multiple columns of text - good for some lists
 \usepackage{xcolor}																						% Package allows for easier colour management
 
@@ -61,6 +58,15 @@
 
 % The hyperref package is used to create clickable cross-reference links.
 \usepackage[hidelinks]{hyperref}
+
+% This defines how references and bibliographies are used. 
+% It's best to use biber, not bibtex, but you'll need to modify the LateX to PDF profile as follows:
+% Change the "Path to BibTeX" executable, to the biber executable, located in the same directory, then remove the "backend=bibtex8" phrase
+\usepackage{silence}																																% This package suppresses an error about footnotes
+\WarningFilter{biblatex}{Patching footnotes failed.}																% It is generated in error and can be ignored
+\usepackage[citestyle=authoryear-icomp,sorting=nyt,bibstyle=authoryear]{biblatex}		% This defines how references are handled
+% \usepackage[citestyle=authoryear-icomp,sorting=nyt,bibstyle=authoryear]{biblatex}	% See above for instructions
+\addbibresource{library.bib}																												% This defines which bibliography databases are used
 
 \begin{document}
 % The following changes the page colour of the pdf for dyslexics.
@@ -108,8 +114,7 @@ I would like to thank...
 \include{textandxref}
 \include{figuresandtables} 
 
-\bibliographystyle{chicago}
-\bibliography{library}
+\printbibliography
 
 % Comment the following THREE lines if you do NOT have an Appendix
 %\appendix

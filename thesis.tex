@@ -1,13 +1,8 @@
-% Delete the MSc option if you are doing a PhD, or replace it with MPhil
-% for a Master of Philosophy thesis
-%
-% The 12pt option is required by the 2001/02 thesis regulations
-% Last update 15th August 2007: new Abstract format and Copyright Statement
-
 % Replace MSc with PhD for PhD theses
 % Remove the twoside option for single-sided printing
+% The 12pt option is required by the 2001/02 thesis regulations
 \documentclass[12pt,MSc,twoside]{muthesis}
-% This file is thesis.tex
+
 % For the history of this document, see the header to the accompanying stylesheet, geogthesis.cls
 % This document lays out the body of the thesis, bookends and chapter order. This is the document you need to compile.
 
@@ -60,56 +55,43 @@
 \usepackage[hidelinks]{hyperref}
 
 % This defines how references and bibliographies are used. 
-% It's best to use biber, not bibtex, but you'll need to modify the LateX to PDF profile as follows:
-% Change the "Path to BibTeX" executable, to the biber executable, located in the same directory, then remove the "backend=bibtex8" phrase
-\usepackage{silence}																																% This package suppresses an error about footnotes
-\WarningFilter{biblatex}{Patching footnotes failed.}																% It is generated in error and can be ignored
-\usepackage[citestyle=authoryear-icomp,sorting=nyt,bibstyle=authoryear]{biblatex}		% This defines how references are handled
-% \usepackage[citestyle=authoryear-icomp,sorting=nyt,bibstyle=authoryear]{biblatex}	% See above for instructions
+% It's best to use biber, not bibtex, but you'll need to modify the LateX to PDF profile in TeXnicCenter as follows:
+% Change the "Path to BibTeX" executable, to the biber executable, located in the same directory
+% If you don't you'll need to use "backend=bibtex8" as an option e.g. \usepackage[backend=bibtex8]{biblatex}
+
+\usepackage{polyglossia}																														% This is a big old kludge to get APA formatting to work.
+\setdefaultlanguage[variant=british]{english}																				% Although it'll save you headache in the long-run, 
+\DeclareLanguageMapping{english}{english-apa}																				% it does seem a bit of a pain to add all this overhead
+\usepackage{csquotes}																																% for what should be a defined profile native to biblatex.
+\usepackage[style=apa,sorting=nyt]{biblatex}																				% This implements biblatex citation system.
+% \usepackage[citestyle=authoryear-icomp,sorting=nyt,bibstyle=authoryear]{biblatex}	% This is an alterative that uses simpler author-year, but not APA.
 \addbibresource{library.bib}																												% This defines which bibliography databases are used
 
 \begin{document}
-% The following changes the page colour of the pdf for dyslexics.
-%\pagecolor{blue!30} 																					% Changes page colour. Useful for dyslexics.
+%\pagecolor{blue!30} 																																% Changes page colour. Useful for dyslexics.
 \title{The University Thesis File}
 \author{The Author's Name}
-% Faculty of Life Sciences people should comment the next line out
-\school{The Author's School}
+
+\school{The Author's School}																												% Faculty of Life Sciences people should comment this line out
 \faculty{The Author's Faculty}
 \def\wordcount{nnnnn}
 
-% Uncomment the line below to suppress the `List of Tables' page (optional)
-%\tablespagefalse
-
-% Uncomment the line below to suppress the `List of Figures' page (optional)
-%\figurespagefalse
-
-% Uncomment the line below to use a customised Declaration statement
-%\def\declaration{All the work in this thesis has been sourced from Google.}
+%\tablespagefalse																																		% Uncomment this line to suppress the `List of Tables' page (optional)
+%\figurespagefalse																																	% Uncomment the line below to suppress the `List of Figures' page (optional)
+%\def\declaration{Insert custom statement here.}																		% Uncomment this line to use a customised declaration statement.
+																																										% NOTE: Abstract format and Copyright Statement last updated 15th August 2007.
 
 \beforeabstract
-
-Write your abstract here: Remember, it must fit on this A4 page and should
-describe contents of the thesis/dissertation. Here might also be a good place
-to indicate what you have achieved in the thesis/dissertation and, in the
-case of a PhD, what new results you have discovered. Note that for a PhD
-single-spacing is used throughout the Abstract, including displayed equations
-\[
-e = mc^{2}
-\]
-as for the above example.
-
+Write your abstract here: Remember, it must fit on this A4 page and should describe contents of the thesis/dissertation. Here might also be a good place to indicate what you have achieved in the thesis/dissertation and, in the case of a PhD, what new results you have discovered. Note that for a PhD single-spacing is used throughout the abstract, including displayed equations \[e = mc^{2}\] as for the above example.
 \afterabstract
 
-% The next part is optional
-\prefacesection{Acknowledgements}
-I would like to thank...
 
-% The next line is NOT optional and MUST appear
-\afterpreface
+\prefacesection{Acknowledgements}																										% This is optional - comment out if you want.
+I would like to thank...
+\afterpreface																																				% The line is NOT optional and MUST appear.
 
 % The following defines the chapter files and their order.
-\raggedright          																					%justifies left, according to the university specifications. Comment out for fully justified.
+\raggedright          																															%justifies left, according to the university specifications. Comment out for fully justified.
 \include{intro}
 \include{textandxref}
 \include{figuresandtables} 
@@ -120,7 +102,6 @@ I would like to thank...
 %\appendix
 %\chapter{A Long Proof}
 %.........
-
 % If you need more than one appendix, then just use another \chapter command
 %\chapter{Yet Another Appendix}
 

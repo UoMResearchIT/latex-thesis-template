@@ -1,3 +1,7 @@
+## TeXnicCenter Project Files
+*.tcp
+*.tps
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof

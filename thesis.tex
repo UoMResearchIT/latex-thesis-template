@@ -59,12 +59,17 @@
 % Change the "Path to BibTeX" executable, to the biber executable, located in the same directory
 % If you don't you'll need to use "backend=bibtex8" as an option e.g. \usepackage[backend=bibtex8]{biblatex}
 
-\usepackage{polyglossia}																														% This is a big old kludge to get APA formatting to work.
-\setdefaultlanguage[variant=british]{english}																				% Although it'll save you headache in the long-run, 
-\DeclareLanguageMapping{english}{english-apa}																				% it does seem a bit of a pain to add all this overhead
-\usepackage{csquotes}																																% for what should be a defined profile native to biblatex.
-\usepackage[style=apa,sorting=nyt]{biblatex}																				% This implements biblatex citation system.
-% \usepackage[citestyle=authoryear-icomp,sorting=nyt,bibstyle=authoryear]{biblatex}	% This is an alterative that uses simpler author-year, but not APA.
+% This is a big old kludge to get APA formatting to work.
+% Although it'll save you headache in the long-run, it does seem a bit of a pain to add all this overhead for what should be a defined profile native to biblatex.
+\usepackage{polyglossia}																														
+\setdefaultlanguage[variant=british]{english}																				
+\usepackage{csquotes}																										
+% This implements biblatex citation system.						
+\usepackage[style=apa,sorting=nyt]{biblatex}																				
+\DeclareLanguageMapping{english}{english-apa}		
+
+% This is an alterative that uses simpler author-year, but not APA.
+% \usepackage[citestyle=authoryear-icomp,sorting=nyt,bibstyle=authoryear]{biblatex}																		
 \addbibresource{library.bib}																												% This defines which bibliography databases are used
 
 \begin{document}

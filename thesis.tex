@@ -68,10 +68,8 @@
 \usepackage{csquotes}																										
 % This implements biblatex citation system.						
 \usepackage[style=apa,sorting=nyt]{biblatex}																				
-\DeclareLanguageMapping{english}{english-apa}	
-\usepackage{silence}
-\WarningFilter{csquotes}{Using preliminary 'polyglossia' interface.}	% This doesn't matter.
-\WarningFilter{biblatex}{Patching footnotes failed.}									% It's because the footnote style is modified by the stylesheet.
+\DeclareLanguageMapping{english}{english-apa}		
+
 % This is an alterative that uses simpler author-year, but not APA.
 % \usepackage[citestyle=authoryear-icomp,sorting=nyt,bibstyle=authoryear]{biblatex}																		
 \addbibresource{library.bib}																												% This defines which bibliography databases are used

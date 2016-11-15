@@ -5,4 +5,5 @@ This document is adapted from the template provided by the School of Mathematics
 
 All of the materials here are licenced under CC-BY-SA v4.0 in lieu of any explicit licencing of the original material; see: https://creativecommons.org/licenses/by-sa/4.0/ for more details.
 
+## Biber branch
 This document has been tested to compile correctly using LuaLaTeX to PDF with biber as the backend for biblatex.

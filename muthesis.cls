@@ -285,6 +285,7 @@ acceptable looking results, but it may be omitted to get smaller print.
 %% \supervisor , just by copying the definitions of \principaladvisor
 %%
 \def\school#1{\gdef\@school{#1}}
+\def\department#1{\gdef\@department{#1}}
 \def\faculty#1{\gdef\@faculty{#1}}
 \def\principaladviser#1{\gdef\@principaladviser{#1}}
 \def\advis@r{Advisor} % default spelling---we are English!
@@ -339,6 +340,11 @@ acceptable looking results, but it may be omitted to get smaller print.
         \vfill
         \begin{center}
                 {\bf\@author}\\
+                \ifx\@empty\@department
+                \else
+                Department of \expandafter{\@department}
+                \fi
+                
                 \ifx\@empty\@school
                 \else
                 School of \expandafter{\@school}
